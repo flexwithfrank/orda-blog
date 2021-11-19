@@ -14,6 +14,83 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/solid"
 import { Button } from "../Button"
 
+const headerConfig = [
+  {
+    name: "Products",
+    submenu: [
+      {
+        name: "Ordering",
+        icon: ShieldCheckIcon,
+        description: "All you need for digital ordering",
+        links: [
+          {
+            name: "Mobile app ordering",
+            href: "#",
+          },
+          {
+            name: "Self-service ordering",
+            href: "#",
+          },
+          {
+            name: "Kitchen Display System",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Marketing",
+        icon: ShieldCheckIcon,
+        description: "Reach new customers around you",
+        links: [
+          {
+            name: "Promote Tools",
+            href: "#",
+          },
+          {
+            name: "Email & SMS Marketing",
+            href: "#",
+          },
+          {
+            name: "Marketing Services",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Support",
+        icon: ShieldCheckIcon,
+        description: "Your knowledge base for success",
+        links: [
+          {
+            name: "Feedback",
+            href: "#",
+          },
+          {
+            name: "University",
+            href: "#",
+          },
+          {
+            name: "Talk To An Expert",
+            href: "#",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Pricing",
+    href: "#",
+  },
+  {
+    name: "Blog",
+    href: "#",
+  },
+  {
+    name: "Login",
+    href: "#",
+  },
+]
+
 const solutions = [
   {
     name: "Analytics",
@@ -133,30 +210,29 @@ export function Header() {
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
                 >
-                  <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                  <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-4xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                     <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                       <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-3">
-                        {solutions.map((solution) => (
-                          <a
-                            key={solution.name}
-                            href={solution.href}
-                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                        {headerConfig[0].submenu.map((column) => (
+                          <div
+                            key={column.name}
+                            className="border-r border-gray-300 last:border-r-0"
                           >
-                            <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                              <solution.icon
-                                className="h-6 w-6 text-white"
-                                aria-hidden="true"
-                              />
-                            </div>
-                            <div className="ml-4">
-                              <p className="text-base font-medium text-gray-900">
-                                {solution.name}
-                              </p>
-                              <p className="mt-1 text-sm text-white">
-                                {solution.description}
-                              </p>
-                            </div>
-                          </a>
+                            <h2 className="text-4xl mb-3 font-medium flex items-baseline">
+                              <column.icon className="h-6 w-6 mr-4 text-light-blue" />
+                              {column.name}
+                            </h2>
+                            <p className="text-xs font-medium text-light-blue">
+                              {column.description}
+                            </p>
+                            <ul className="space-y-6 mt-12 text-xl">
+                              {column.links.map((link) => (
+                                <li key={link.name}>
+                                  <a href={link.href}>{link.name}</a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         ))}
                       </div>
                     </div>

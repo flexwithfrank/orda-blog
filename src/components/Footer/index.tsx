@@ -114,8 +114,8 @@ export function Footer() {
           ))}
         </div>
       </div>
-      <div className="w-full mt-12 border-t border-white pt-8">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="w-full mt-12 border-t border-white">
+        <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
           <div className="inline-grid grid-cols-3 gap-2 place-items-center w-full">
             <p className="col-start-2 text-base text-white xl:text-center">
               &copy; Get Orda, 2021. All rights reserved.

@@ -29,7 +29,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={` ${buttonConfig.textColor[textColor]} ${buttonConfig.bgColor[bgColor]} font-semibold rounded-full py-4 px-7`}
+      className={`${buttonConfig.textColor[textColor]} ${buttonConfig.bgColor[bgColor]} font-semibold rounded-full py-4 px-7`}
       {...props}
     >
       {text}

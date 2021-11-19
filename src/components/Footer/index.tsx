@@ -84,11 +84,11 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-4 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <img className="h-10" src="/logo.png" alt="Company name" />
-            <Button bgColor="white" fontColor="darker-blue" />
+            <Button bgColor="white" textColor="darker-blue" />
           </div>
 
           {navigation.LinkCol.map((item) => (
-            <div className="xl:col-span-1">
+            <div key={item.name} className="xl:col-span-1">
               <div>
                 <h3 className="text-4xl font-semibold text-white tracking-wider">
                   {item.name}

@@ -1,9 +1,11 @@
 import { Button } from "components/Button"
+import { Footer } from "components/Footer"
 
 export default function Home() {
   return (
-    <div className="h-screen w-full flex justify-center items-center">
-      <Button bgColor="darker-blue" text="Button text" fontColor="black" />
-    </div>
+    <>
+      <Button bgColor="light-blue" fontColor="black" text="Button text" />
+      <Footer />
+    </>
   )
 }

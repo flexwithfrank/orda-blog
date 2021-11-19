@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes } from "react"
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   bgColor?: "light-blue" | "darker-blue" | "white" | "black"
   text?: string
-  fontColor?: "black" | "white"
+  fontColor?: "light-blue" | "darker-blue" | "white" | "black"
 }
 
 export function Button({

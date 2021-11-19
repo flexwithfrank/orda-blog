@@ -1,5 +1,5 @@
 module.exports = {
-  mode: "jit",
+  mode: "",
   purge: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
@@ -10,8 +10,6 @@ module.exports = {
       colors: {
         "light-blue": "#218BD6",
         "darker-blue": "#2362AF",
-        black: "#000",
-        white: "#fff",
       },
     },
   },

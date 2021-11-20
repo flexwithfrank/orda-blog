@@ -6,7 +6,7 @@ type ReadyToLaunchProps = {
 
 export function ReadyToLaunch({ option2 }: ReadyToLaunchProps) {
   return (
-    <div className="w-full">
+    <div className="relative z-0 w-full">
       <div className="relative bg-darker-blue max-w-6xl h-48 mx-auto px-4 py-6 sm:px-6 rounded-3xl">
         <div className="relative w-11/12 flex justify-between h-full items-center mx-auto z-20">
           <div>

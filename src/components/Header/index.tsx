@@ -83,7 +83,7 @@ const headerConfig = [
   },
   {
     name: "Blog",
-    href: "#",
+    href: "/blog",
   },
   {
     name: "Login",
@@ -167,9 +167,13 @@ export function Header() {
     <Popover className="relative bg-darker-blue">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
-          <a href="#">
+          <a href="/">
             <span className="sr-only">Orda logo</span>
-            <img className="h-8 w-auto sm:h-10" src="/logo.png" alt="" />
+            <img
+              className="h-8 w-auto sm:h-10"
+              src="/logo.png"
+              alt="Orda Logo"
+            />
           </a>
         </div>
         <div className="-mr-2 -my-2 md:hidden">
@@ -242,24 +246,18 @@ export function Header() {
             )}
           </Popover>
 
-          <a
-            href="#"
-            className="text-base font-medium text-white hover:text-gray-200"
-          >
-            Pricing
-          </a>
-          <a
-            href="#"
-            className="text-base font-medium text-white hover:text-gray-200"
-          >
-            Blog
-          </a>
-          <a
-            href="#"
-            className="whitespace-nowrap text-base font-medium text-white hover:text-gray-200"
-          >
-            Login
-          </a>
+          {headerConfig.slice(1).map((link) => {
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-base font-medium text-white hover:text-gray-200"
+              >
+                {link.name}
+              </a>
+            )
+          })}
+
           <Button />
         </Popover.Group>
       </div>
@@ -281,7 +279,7 @@ export function Header() {
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <img className="h-8 w-auto" src="/logo.png" alt="Workflow" />
+                  <img className="h-8 w-auto" src="/logo.png" alt="Orda logo" />
                 </div>
                 <div className="-mr-2">
                   <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset">

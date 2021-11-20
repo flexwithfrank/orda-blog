@@ -98,7 +98,7 @@ export function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-lg text-white hover:text-gray-900"
+                        className="text-lg text-white hover:text-light-blue"
                       >
                         {item.name}
                       </a>

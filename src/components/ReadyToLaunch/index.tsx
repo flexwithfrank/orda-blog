@@ -1,4 +1,5 @@
 import { SignUpButton } from "../SignUpButton"
+import { CheckIcon, TrendingUpIcon, CodeIcon } from "@heroicons/react/solid"
 
 type ReadyToLaunchProps = {
   option2?: boolean
@@ -7,25 +8,49 @@ type ReadyToLaunchProps = {
 export function ReadyToLaunch({ option2 }: ReadyToLaunchProps) {
   return (
     <div className="relative z-0 w-full">
-      <div className="relative bg-darker-blue max-w-6xl h-48 mx-auto px-4 py-6 sm:px-6 rounded-3xl">
-        <div className="relative w-11/12 flex justify-between h-full items-center mx-auto z-20">
+      <div className="relative bg-darker-blue sm:max-w-6xl h-full sm:h-48 w-11/12 mx-auto px-4 py-6 sm:px-6 rounded-3xl">
+        <div className="relative w-11/12 flex flex-col sm:flex-row justify-between h-full items-center mx-auto z-20">
           <div>
             <p className="text-5xl font-black text-white">
               Ready to <br /> Launch?
             </p>
           </div>
-          <div className="flex flex-col items-center ml-auto">
+          <div className="flex flex-col items-center mt-8 sm:mt-0 sm:ml-auto">
             <SignUpButton bgColor="white" textColor="black" />
             <div className="flex flex-col items-center text-white mt-2">
               {option2 ? (
                 <>
-                  <p>No code needed</p>
-                  <p>Launch in min</p>
+                  <div className="flex">
+                    <CodeIcon
+                      className="h-6 w-6 text-light-blue mr-1"
+                      aria-hidden="true"
+                    />
+                    <span>No code needed</span>
+                  </div>
+                  <div className="flex">
+                    <TrendingUpIcon
+                      className="h-6 w-6 text-light-blue mr-1"
+                      aria-hidden="true"
+                    />
+                    <span>Launch in min</span>
+                  </div>
                 </>
               ) : (
                 <>
-                  <p>Connect your store</p>
-                  <p>Launch in min</p>
+                  <div className="flex">
+                    <CheckIcon
+                      className="h-6 w-6 text-light-blue mr-1"
+                      aria-hidden="true"
+                    />
+                    <span>Connect your store</span>
+                  </div>
+                  <div className="flex">
+                    <TrendingUpIcon
+                      className="h-6 w-6 text-light-blue mr-1"
+                      aria-hidden="true"
+                    />
+                    <span>Launch in min</span>
+                  </div>
                 </>
               )}
             </div>

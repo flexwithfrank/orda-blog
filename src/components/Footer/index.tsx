@@ -81,14 +81,14 @@ export function Footer() {
         Footer
       </h2>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div className="xl:grid xl:grid-cols-4 xl:gap-8">
-          <div className="space-y-8 xl:col-span-1">
+        <div className="sm:grid sm:grid-cols-2 md:grid-cols-4 md:gap-8">
+          <div className="space-y-8 md:col-span-1">
             <img className="h-10" src="/logo.png" alt="Orda Logo" />
             <SignUpButton bgColor="white" textColor="darker-blue" />
           </div>
 
           {navigation.LinkCol.map((item) => (
-            <div key={item.name} className="xl:col-span-1">
+            <div key={item.name} className="mt-10 sm:mt-0 md:col-span-1">
               <div>
                 <h3 className="text-4xl font-semibold text-white tracking-wider">
                   {item.name}
@@ -114,13 +114,13 @@ export function Footer() {
           ))}
         </div>
       </div>
-      <div className="w-full mt-12 border-t border-white">
+      <div className="w-full mt-0 sm:mt-12 border-t border-white">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-          <div className="inline-grid grid-cols-3 gap-2 place-items-center w-full">
-            <p className="col-start-2 text-base text-white xl:text-center">
+          <div className="flex flex-col items-center sm:inline-grid sm:grid-cols-4 sm:gap-8 sm:place-items-center w-full">
+            <p className="col-start-2 col-span-2 text-base text-white xl:text-center">
               &copy; Get Orda, 2021. All rights reserved.
             </p>
-            <div className="flex space-x-6 ml-auto">
+            <div className="flex space-x-6 mt-8 sm:mt-0 mx-auto sm:mr-auto col-start-4">
               {navigation.social.map((item) => (
                 <a
                   key={item.name}

@@ -1,4 +1,4 @@
-import { Button } from "../Button"
+import { SignUpButton } from "../SignUpButton"
 
 type ReadyToLaunchProps = {
   option2?: boolean
@@ -15,7 +15,7 @@ export function ReadyToLaunch({ option2 }: ReadyToLaunchProps) {
             </p>
           </div>
           <div className="flex flex-col items-center ml-auto">
-            <Button bgColor="white" textColor="black" />
+            <SignUpButton bgColor="white" textColor="black" />
             <div className="flex flex-col items-center text-white mt-2">
               {option2 ? (
                 <>

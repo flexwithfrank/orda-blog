@@ -1,4 +1,4 @@
-import { Button } from "../Button"
+import { SignUpButton } from "../SignUpButton"
 
 const navigation = {
   LinkCol: [
@@ -84,7 +84,7 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-4 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <img className="h-10" src="/logo.png" alt="Company name" />
-            <Button bgColor="white" textColor="darker-blue" />
+            <SignUpButton bgColor="white" textColor="darker-blue" />
           </div>
 
           {navigation.LinkCol.map((item) => (

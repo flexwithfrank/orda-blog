@@ -12,7 +12,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline"
 import { ChevronDownIcon } from "@heroicons/react/solid"
-import { Button } from "../Button"
+import { SignUpButton } from "../SignUpButton"
 
 const headerConfig = [
   {
@@ -258,7 +258,7 @@ export function Header() {
             )
           })}
 
-          <Button />
+          <SignUpButton />
         </Popover.Group>
       </div>
 

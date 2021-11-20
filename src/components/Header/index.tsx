@@ -1,16 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
-import {
-  ChartBarIcon,
-  CursorClickIcon,
-  DocumentReportIcon,
-  MenuIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
-  ViewGridIcon,
-  XIcon,
-} from "@heroicons/react/outline"
+import { MenuIcon, ShieldCheckIcon, XIcon } from "@heroicons/react/outline"
 import { ChevronDownIcon } from "@heroicons/react/solid"
 import { SignUpButton } from "../SignUpButton"
 
@@ -87,73 +78,6 @@ const headerConfig = [
   },
   {
     name: "Login",
-    href: "#",
-  },
-]
-
-const solutions = [
-  {
-    name: "Analytics",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
-    href: "#",
-    icon: ChartBarIcon,
-  },
-  {
-    name: "Engagement",
-    description: "Speak directly to your customers in a more meaningful way.",
-    href: "#",
-    icon: CursorClickIcon,
-  },
-  {
-    name: "Security",
-    description: "Your customers' data will be safe and secure.",
-    href: "#",
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Connect with third-party tools that you're already using.",
-    href: "#",
-    icon: ViewGridIcon,
-  },
-  {
-    name: "Automations",
-    description:
-      "Build strategic funnels that will drive your customers to convert",
-    href: "#",
-    icon: RefreshIcon,
-  },
-  {
-    name: "Reports",
-    description:
-      "Get detailed reports that will help you make more informed decisions ",
-    href: "#",
-    icon: DocumentReportIcon,
-  },
-]
-const resources = [
-  {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
-    href: "#",
-  },
-  {
-    name: "Guides",
-    description:
-      "Learn how to maximize our platform to get the most out of it.",
-    href: "#",
-  },
-  {
-    name: "Events",
-    description:
-      "See what meet-ups and other events we might be planning near you.",
-    href: "#",
-  },
-  {
-    name: "Security",
-    description: "Understand how we take your privacy seriously.",
     href: "#",
   },
 ]
@@ -275,7 +199,7 @@ export function Header() {
           focus
           className="absolute z-10 top-0 inset-x-0 transition transform origin-top-right md:hidden"
         >
-          <div className="ring-1 ring-black ring-opacity-5 bg-darker-blue divide-y-2 divide-gray-50">
+          <div className="h-screen ring-1 ring-black ring-opacity-5 bg-darker-blue divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between ">
                 <div>
@@ -290,14 +214,14 @@ export function Header() {
               </div>
               <div className="mt-6">
                 <nav className="grid grid-cols-1 gap-7">
-                  {solutions.map((solution) => (
+                  {headerConfig.map((link) => (
                     <a
-                      key={solution.name}
-                      href={solution.href}
+                      key={link.name}
+                      href={link.href}
                       className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
                     >
                       <div className="ml-4 text-base font-medium text-white">
-                        {solution.name}
+                        {link.name}
                       </div>
                     </a>
                   ))}

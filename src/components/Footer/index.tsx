@@ -83,7 +83,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-4 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <img className="h-10" src="/logo.png" alt="Company name" />
+            <img className="h-10" src="/logo.png" alt="Orda Logo" />
             <SignUpButton bgColor="white" textColor="darker-blue" />
           </div>
 

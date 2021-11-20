@@ -1,7 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Dispatch, Fragment, SetStateAction, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
-import { CheckIcon } from "@heroicons/react/outline"
+import { XIcon, ExclamationIcon } from "@heroicons/react/outline"
+import { Button } from "../Button"
 
 type SignUpPopUpProps = {
   open: boolean
@@ -9,6 +10,27 @@ type SignUpPopUpProps = {
 }
 
 export default function SignUpPopUp({ open, setOpen }: SignUpPopUpProps) {
+  const [inputValue, setInputValue] = useState("")
+  const [effect, setEffect] = useState(false)
+  const [warning, setWarning] = useState(false)
+
+  function handleClick() {
+    if (!inputValue) {
+      setEffect(true)
+      setWarning(true)
+
+      setTimeout(() => setWarning(false), 2500)
+    }
+
+    if (inputValue) {
+      window.location.href = `https://dashboard.getorda.com/signup/?state=${inputValue}`
+    }
+  }
+
+  function turnOffAnimation() {
+    setEffect(false)
+  }
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -26,7 +48,7 @@ export default function SignUpPopUp({ open, setOpen }: SignUpPopUpProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -45,36 +67,72 @@ export default function SignUpPopUp({ open, setOpen }: SignUpPopUpProps) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
-              <div>
-                <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                  <CheckIcon
-                    className="h-6 w-6 text-green-600"
-                    aria-hidden="true"
-                  />
-                </div>
+            <div className="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full sm:h-full sm:p-6">
+              <div className="flex flex-col items-center justify-center">
+                <img
+                  className="h-7 mb-8"
+                  src="/orda-blue-logo.png"
+                  alt="Orda Logo"
+                />
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg leading-6 font-medium text-gray-900"
+                    className="text-5xl leading-6 font-extrabold text-gray-900"
                   >
-                    Payment successful
+                    Sign up with Orda
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
+                  <div className="mt-8">
+                    <Dialog.Description className="text-lg text-gray-800">
+                      Connect your Square account to create your mobile app with
+                      Orda
+                    </Dialog.Description>
                   </div>
                 </div>
               </div>
+              <div className="flex justify-center mt-10">
+                <label
+                  className={`${
+                    effect && "animate-wiggle border-2 border-red-500"
+                  } flex items-center bg-gray-200 rounded-full pl-6 ${
+                    warning && "border-2 border-red-500"
+                  }`}
+                  onAnimationEnd={() => turnOffAnimation()}
+                >
+                  {warning ? (
+                    <ExclamationIcon
+                      className="h-6 w-6 mr-2 text-red-500"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                  <input
+                    className={`${
+                      warning && "placeholder-red-500"
+                    } bg-gray-200 outline-none w-80 pr-6`}
+                    placeholder={
+                      warning
+                        ? "Please enter your store URL here"
+                        : "Enter your store URL here"
+                    }
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                  />
+                  <Button text="Connect with Square" onClick={handleClick} />
+                </label>
+              </div>
+              <p className="text-gray-400 text-sm text-center mt-20">
+                By logging in you agree to our{" "}
+                <a className="text-light-blue" href="#">
+                  privacy policy
+                </a>
+              </p>
               <div className="mt-5 sm:mt-6">
                 <button
                   type="button"
-                  className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                  className="absolute right-3 top-3"
                   onClick={() => setOpen(false)}
                 >
-                  Go back to dashboard
+                  <XIcon className="h-6 w-6 text-gray-600" aria-hidden="true" />
                 </button>
               </div>
             </div>

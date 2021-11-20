@@ -11,6 +11,15 @@ module.exports = {
         "light-blue": "#218BD6",
         "darker-blue": "#2362AF",
       },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 200ms ease-in-out",
+      },
     },
   },
   variants: {

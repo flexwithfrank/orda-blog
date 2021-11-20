@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="space-y-16">
       <Header />
-      <Button />
+      <Button text="This is a Custom Button" />
       <SignUpButton bgColor="black" />
       <ReadyToLaunch />
       <Footer />

@@ -1,6 +1,7 @@
 import { Button } from "../Button"
-import { ButtonHTMLAttributes, useState } from "react"
+import { ButtonHTMLAttributes, useState, useContext } from "react"
 import SignUpPopUp from "../SignUpPopUp"
+import { modalContext } from "context/modalContext"
 
 type SignUpButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   bgColor?: "light-blue" | "darker-blue" | "white" | "black"
@@ -12,7 +13,11 @@ export function SignUpButton({
   textColor = "white",
   ...props
 }: SignUpButtonProps) {
-  const [open, setOpen] = useState(false)
+  const { modalIsOpen, setModalIsOpen } = useContext(modalContext)
+
+  function handleClick() {
+    setModalIsOpen(true)
+  }
 
   return (
     <>
@@ -21,9 +26,8 @@ export function SignUpButton({
         bgColor={bgColor}
         textColor={textColor}
         {...props}
-        onClick={() => setOpen(true)}
+        onClick={handleClick}
       />
-      <SignUpPopUp open={open} setOpen={setOpen} />
     </>
   )
 }

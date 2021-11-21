@@ -1,15 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Dispatch, Fragment, SetStateAction, useState } from "react"
+import { Dispatch, Fragment, useContext, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { XIcon, ExclamationIcon } from "@heroicons/react/outline"
 import { Button } from "../Button"
+import { modalContext } from "../../context/modalContext"
 
-type SignUpPopUpProps = {
-  open: boolean
-  setOpen: Dispatch<SetStateAction<boolean>>
-}
-
-export default function SignUpPopUp({ open, setOpen }: SignUpPopUpProps) {
+export default function SignUpPopUp() {
+  const { modalIsOpen, setModalIsOpen } = useContext(modalContext)
   const [inputValue, setInputValue] = useState("")
   const [effect, setEffect] = useState(false)
   const [warning, setWarning] = useState(false)
@@ -32,11 +29,11 @@ export default function SignUpPopUp({ open, setOpen }: SignUpPopUpProps) {
   }
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={modalIsOpen} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
-        onClose={setOpen}
+        onClose={setModalIsOpen}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -130,7 +127,7 @@ export default function SignUpPopUp({ open, setOpen }: SignUpPopUpProps) {
                 <button
                   type="button"
                   className="absolute right-3 top-3"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setModalIsOpen(false)}
                 >
                   <XIcon className="h-6 w-6 text-gray-600" aria-hidden="true" />
                 </button>

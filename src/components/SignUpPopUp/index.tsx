@@ -1,5 +1,4 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Dispatch, Fragment, useContext, useState } from "react"
+import { Fragment, useContext, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { XIcon, ExclamationIcon } from "@heroicons/react/outline"
 import { Button } from "../Button"

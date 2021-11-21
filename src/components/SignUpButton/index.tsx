@@ -1,6 +1,5 @@
 import { Button } from "../Button"
-import { ButtonHTMLAttributes, useState, useContext } from "react"
-import SignUpPopUp from "../SignUpPopUp"
+import { ButtonHTMLAttributes, useContext } from "react"
 import { modalContext } from "context/modalContext"
 
 type SignUpButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -13,7 +12,7 @@ export function SignUpButton({
   textColor = "white",
   ...props
 }: SignUpButtonProps) {
-  const { modalIsOpen, setModalIsOpen } = useContext(modalContext)
+  const { setModalIsOpen } = useContext(modalContext)
 
   function handleClick() {
     setModalIsOpen(true)

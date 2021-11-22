@@ -20,7 +20,7 @@ export function BlogPostCard({
   return (
     <Link href={`/blog/posts/${slug}`}>
       <a className="bg-gray-200 w-full min-h-[150px] rounded-3xl px-4 py-4 flex flex-col justify-between">
-        <div className="">
+        <div className="flex justify-center items-center">
           <Image
             src={coverImage}
             width={300}

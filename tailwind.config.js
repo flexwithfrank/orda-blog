@@ -6,6 +6,10 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      sans: ["Lato", "sans-serif"],
+      cerebri: ["Cerebri", "sans-serif"],
+    },
     extend: {
       colors: {
         "light-blue": "#218BD6",

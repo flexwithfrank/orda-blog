@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Cerebri";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local("Cerebri"), url(/fonts/CerebriSans-ExtraBold.woff2) format("woff2");
+}

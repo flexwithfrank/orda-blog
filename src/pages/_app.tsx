@@ -1,5 +1,5 @@
 import { AppProps } from "next/app"
-import "tailwindcss/tailwind.css"
+import "../styles/globals.css"
 import { ModalProvider } from "context/modalContext"
 import SignUpPopUp from "../components/SignUpPopUp"
 

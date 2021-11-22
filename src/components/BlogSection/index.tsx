@@ -8,7 +8,7 @@ type Props = {
 export function BlogSection({ allPosts }: Props) {
   return (
     <>
-      <div className="max-w-7xl my-24 mx-auto grid grid-cols-4 auto-rows-2 gap-x-8 gap-y-16">
+      <div className="w-11/12 md:max-w-7xl my-24 mx-auto grid md:grid-cols-4 auto-rows-2 gap-x-8 gap-y-8 md:gap-y-16">
         {allPosts.map((post) => {
           return (
             <BlogPostCard

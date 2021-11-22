@@ -1,8 +1,10 @@
-import { useRouter } from "next/router"
-import ErrorPage from "next/error"
 import { getAllPosts, getPostBySlug } from "lib/api"
 import markdownToHtml from "lib/markdownToHtml"
 import PostType from "types/post"
+import { Footer } from "components/Footer"
+import { Header } from "components/Header"
+import { ReadyToLaunch } from "components/ReadyToLaunch"
+import Image from "next/image"
 
 type Props = {
   post: PostType
@@ -11,7 +13,24 @@ type Props = {
 }
 
 export default function Post({ post, morePosts, preview }: Props) {
-  return <pre>{JSON.stringify(post, null, 2)}</pre>
+  console.log(post.coverImage)
+
+  return (
+    <>
+      <Header />
+      <div className="flex flex-col justify-center items-center my-16">
+        <Image src={post.coverImage} height={400} width={700} />
+        <h1 className="text-4xl font-bold text-left w-1/2 my-8">
+          {post.title}
+        </h1>
+        <article className="prose lg:prose-xl">
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        </article>
+      </div>
+      <ReadyToLaunch />
+      <Footer />
+    </>
+  )
 }
 
 type Params = {

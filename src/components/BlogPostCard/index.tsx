@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { ArrowRightIcon } from "@heroicons/react/outline"
 
 type BlogPostCardProps = {
   title: string
@@ -16,7 +17,7 @@ export function BlogPostCard({
 }: BlogPostCardProps) {
   return (
     <Link href={`/blog/posts/${slug}`}>
-      <a className="bg-gray-200 w-full min-h-[150px] rounded-3xl px-4 py-4">
+      <a className="bg-gray-200 w-full min-h-[150px] rounded-3xl px-4 py-4 flex flex-col justify-between">
         <div className="">
           <Image
             src={"https://via.placeholder.com/300"}
@@ -30,11 +31,12 @@ export function BlogPostCard({
             Category
           </span>
         </div>
-        <h2 className="font-semibold text-lg">{title}</h2>
-        <p className="text-sm">{excerpt}</p>
-        <Link href={`/blog/posts/${slug}`}>
-          <a className="text-sm font-semibold">Read more</a>
-        </Link>
+        <h2 className="font-semibold text-lg line-clamp-3">{title}</h2>
+        <p className="text-sm line-clamp-4">{excerpt}</p>
+        <p className="text-sm font-semibold flex items-end">
+          Read more{" "}
+          <ArrowRightIcon className="h-4 w-4 ml-2" aria-hidden="true" />
+        </p>
       </a>
     </Link>
   )

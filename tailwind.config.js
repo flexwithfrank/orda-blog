@@ -27,5 +27,8 @@ module.exports = {
       "border-r": ["last"],
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/typography"),
+  ],
 }

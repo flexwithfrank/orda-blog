@@ -8,7 +8,7 @@ type ReadyToLaunchProps = {
 export function ReadyToLaunch({ option2 }: ReadyToLaunchProps) {
   return (
     <div className="relative z-0 w-full my-24">
-      <div className="relative bg-darker-blue sm:max-w-6xl h-full sm:h-48 w-11/12 mx-auto px-4 py-6 sm:px-6 rounded-3xl">
+      <div className="relative bg-darker-blue sm:max-w-7xl h-full sm:h-48 w-11/12 mx-auto px-4 py-6 sm:px-6 rounded-3xl lg:py-16 lg:px-8">
         <div className="relative w-11/12 flex flex-col sm:flex-row justify-between h-full items-center mx-auto z-20">
           <div>
             <p className="text-5xl font-black text-white">

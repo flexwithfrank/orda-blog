@@ -18,9 +18,9 @@ export default function Post({ post, morePosts, preview }: Props) {
   return (
     <>
       <Header />
-      <div className="flex flex-col justify-center items-center my-16">
+      <div className="w-11/12  mx-auto flex flex-col justify-center items-center my-16">
         <Image src={post.coverImage} height={400} width={700} />
-        <h1 className="text-4xl font-bold text-left w-1/2 my-8">
+        <h1 className="text-2xl sm:text-4xl font-bold text-left sm:w-1/2 my-8">
           {post.title}
         </h1>
         <article className="prose lg:prose-xl">

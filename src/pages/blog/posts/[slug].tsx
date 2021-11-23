@@ -21,7 +21,7 @@ export default function Post({ post }: Props) {
           height={400}
           width={754}
         />
-        <div className="my-8">
+        <div className="mt-8">
           <article className="prose lg:prose-xl">
             <h1>{post.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: post.content }} />

@@ -8,24 +8,25 @@ import Image from "next/image"
 
 type Props = {
   post: PostType
-  morePosts: PostType[]
-  preview?: boolean
 }
 
-export default function Post({ post, morePosts, preview }: Props) {
-  console.log(post.coverImage)
-
+export default function Post({ post }: Props) {
   return (
     <>
       <Header />
       <div className="w-11/12  mx-auto flex flex-col justify-center items-center my-16">
-        <Image src={post.coverImage} height={400} width={700} />
-        <h1 className="text-2xl sm:text-4xl font-bold text-left sm:w-1/2 my-8">
-          {post.title}
-        </h1>
-        <article className="prose lg:prose-xl">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </article>
+        <Image
+          className="object-cover w-full rounded-md mb-16"
+          src={post.coverImage}
+          height={400}
+          width={754}
+        />
+        <div className="my-8">
+          <article className="prose lg:prose-xl">
+            <h1>{post.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          </article>
+        </div>
       </div>
       <ReadyToLaunch />
       <Footer />

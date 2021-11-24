@@ -35,7 +35,7 @@ export default function Post({ post }: Props) {
         }}
       />
       <Header />
-      <div className="w-11/12  mx-auto flex flex-col justify-center items-center my-16">
+      <div className="w-11/12 mx-auto flex flex-col justify-center items-center my-16">
         <Image
           className="object-cover w-full rounded-md mb-16"
           src={post.coverImage}
@@ -44,7 +44,7 @@ export default function Post({ post }: Props) {
         />
         <div className="mt-8">
           <article className="prose lg:prose-xl">
-            <h1>{post.title}</h1>
+            <h1 className="font-cerebri">{post.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </article>
         </div>

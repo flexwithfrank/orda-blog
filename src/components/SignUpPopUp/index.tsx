@@ -1,30 +1,30 @@
-import { Fragment, useContext, useState } from "react"
-import { Dialog, Transition } from "@headlessui/react"
-import { XIcon, ExclamationIcon } from "@heroicons/react/outline"
-import { Button } from "../Button"
-import { modalContext } from "../../context/modalContext"
+import { Fragment, useContext, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { XIcon, ExclamationIcon } from "@heroicons/react/outline";
+import { Button } from "../Button";
+import { modalContext } from "../../context/modalContext";
 
 export default function SignUpPopUp() {
-  const { modalIsOpen, setModalIsOpen } = useContext(modalContext)
-  const [inputValue, setInputValue] = useState("")
-  const [effect, setEffect] = useState(false)
-  const [warning, setWarning] = useState(false)
+  const { modalIsOpen, setModalIsOpen } = useContext(modalContext);
+  const [inputValue, setInputValue] = useState("");
+  const [effect, setEffect] = useState(false);
+  const [warning, setWarning] = useState(false);
 
   function handleClick() {
     if (!inputValue) {
-      setEffect(true)
-      setWarning(true)
+      setEffect(true);
+      setWarning(true);
 
-      setTimeout(() => setWarning(false), 2500)
+      setTimeout(() => setWarning(false), 2500);
     }
 
     if (inputValue) {
-      window.location.href = `https://dashboard.getorda.com/signup/?state=${inputValue}`
+      window.location.href = `https://dashboard.getorda.com/signup/?state=${inputValue}`;
     }
   }
 
   function turnOffAnimation() {
-    setEffect(false)
+    setEffect(false);
   }
 
   return (
@@ -34,7 +34,7 @@ export default function SignUpPopUp() {
         className="fixed z-10 inset-0 overflow-y-auto"
         onClose={setModalIsOpen}
       >
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -73,7 +73,7 @@ export default function SignUpPopUp() {
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Title
                     as="h3"
-                    className="text-5xl leading-6 font-extrabold text-gray-900"
+                    className="text-3xl md:text-5xl leading-6 font-extrabold text-gray-900"
                   >
                     Sign up with Orda
                   </Dialog.Title>
@@ -85,11 +85,11 @@ export default function SignUpPopUp() {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center mt-10">
+              <div className="flex flex-col md:flex-row justify-center mt-10">
                 <label
                   className={`${
                     effect && "animate-wiggle border-2 border-red-500"
-                  } flex items-center bg-gray-200 rounded-full pl-6 ${
+                  } flex items-center py-4 sm:py-0 bg-gray-200 rounded-full pl-6 ${
                     warning && "border-2 border-red-500"
                   }`}
                   onAnimationEnd={() => turnOffAnimation()}
@@ -103,7 +103,7 @@ export default function SignUpPopUp() {
                   <input
                     className={`${
                       warning && "placeholder-red-500"
-                    } bg-gray-200 outline-none w-80 pr-6`}
+                    } bg-gray-200 outline-none w-11/12 md:w-80 pr-6`}
                     placeholder={
                       warning
                         ? "Please enter your store URL here"
@@ -113,12 +113,21 @@ export default function SignUpPopUp() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                   />
-                  <Button text="Connect with Square" onClick={handleClick} />
+                  <div className="hidden sm:block">
+                    <Button text="Connect with Square" onClick={handleClick} />
+                  </div>
                 </label>
+                <div className="block md:hidden mt-8">
+                  <Button
+                    text="Connect with Square"
+                    onClick={handleClick}
+                    style={{ width: "100%" }}
+                  />
+                </div>
               </div>
               <p className="text-gray-400 text-sm text-center mt-20">
                 By logging in you agree to our{" "}
-                <a className="text-light-blue" href="#">
+                <a className="text-light-blue" href="/privacy-policy">
                   privacy policy
                 </a>
               </p>
@@ -136,5 +145,5 @@ export default function SignUpPopUp() {
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }

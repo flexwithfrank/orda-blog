@@ -1,14 +1,14 @@
-import { getAllPosts, getPostBySlug } from "lib/api"
-import markdownToHtml from "lib/markdownToHtml"
-import PostType from "types/post"
-import { Footer } from "components/Footer"
-import { Header } from "components/Header"
-import { ReadyToLaunch } from "components/ReadyToLaunch"
-import Image from "next/image"
+import { getAllPosts, getPostBySlug } from "lib/api";
+import markdownToHtml from "lib/markdownToHtml";
+import PostType from "types/post";
+import { Footer } from "components/Footer";
+import { Header } from "components/Header";
+import { ReadyToLaunch } from "components/ReadyToLaunch";
+import Image from "next/image";
 
 type Props = {
-  post: PostType
-}
+  post: PostType;
+};
 
 export default function Post({ post }: Props) {
   return (
@@ -31,14 +31,14 @@ export default function Post({ post }: Props) {
       <ReadyToLaunch />
       <Footer />
     </>
-  )
+  );
 }
 
 type Params = {
   params: {
-    slug: string
-  }
-}
+    slug: string;
+  };
+};
 
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
@@ -49,8 +49,8 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "ogImage",
     "coverImage",
-  ])
-  const content = await markdownToHtml(post.content || "")
+  ]);
+  const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
@@ -60,20 +60,20 @@ export async function getStaticProps({ params }: Params) {
       },
     },
     revalidate: 10,
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"])
-  console.log(posts)
+  const { posts } = getAllPosts(["slug"]);
+
   return {
     paths: posts.map((post) => {
       return {
         params: {
           slug: post.slug,
         },
-      }
+      };
     }),
     fallback: false,
-  }
+  };
 }

@@ -1,15 +1,15 @@
-import { BlogPostCard } from "../BlogPostCard"
-import Post from "types/post"
+import { BlogPostCard } from "../BlogPostCard";
+import Post from "types/post";
 
 type Props = {
-  allPosts: Post[]
-}
+  posts: Post[];
+};
 
-export function BlogSection({ allPosts }: Props) {
+export function BlogSection({ posts }: Props) {
   return (
     <>
-      <div className="w-11/12 md:max-w-7xl my-24 mx-auto grid md:grid-cols-4 auto-rows-2 gap-x-8 gap-y-8 md:gap-y-16">
-        {allPosts.map((post) => {
+      <div className="w-11/12 md:max-w-7xl my-24 mx-auto grid md:grid-cols-4 auto-row-2 gap-x-8 gap-y-8 md:gap-y-16">
+        {posts.map((post) => {
           return (
             <BlogPostCard
               coverImage={post.coverImage}
@@ -19,9 +19,9 @@ export function BlogSection({ allPosts }: Props) {
               slug={post.slug}
               category={post.category}
             />
-          )
+          );
         })}
       </div>
     </>
-  )
+  );
 }

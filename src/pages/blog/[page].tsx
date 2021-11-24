@@ -86,6 +86,7 @@ export const getStaticPaths = async () => {
   // Get total pages
   const pages = Math.ceil(getPostSlugs().length / POSTS_PER_PAGE);
   // Generate paths for Next.js. It is like: [{ params: { page: 1 } }, { params: { page: 2 }},...]
+
   const paths = Array.from(Array(pages).keys()).map((page) => ({
     params: { page: String(page + 1) },
   }));

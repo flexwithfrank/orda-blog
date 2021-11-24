@@ -1,4 +1,5 @@
 import fs from "fs";
+import dayjs from "dayjs";
 import { join } from "path";
 import matter from "gray-matter";
 
@@ -39,10 +40,11 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
 export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  const postsWithoutOrder = slugs.map((slug) => getPostBySlug(slug, fields));
+  // sort posts by date in descending order
+  const posts = postsWithoutOrder.sort((post1, post2) =>
+    dayjs(post2.date).isAfter(post1.date) ? 1 : -1
+  );
   return { posts, total: posts.length, slugs };
 }
 

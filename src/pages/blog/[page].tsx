@@ -10,7 +10,6 @@ const POSTS_PER_PAGE = 8;
 
 export default function BlogPage({ posts, page, total }) {
   const numberOfPages = Math.ceil(total / POSTS_PER_PAGE);
-
   const pagesIndex = [];
   for (let i = 0; i < numberOfPages; i++) {
     pagesIndex.push(i + 1);
@@ -110,6 +109,7 @@ export const getStaticProps = async ({ params }) => {
     "excerpt",
     "coverImage",
     "category",
+    "date",
   ]);
   return {
     props: {

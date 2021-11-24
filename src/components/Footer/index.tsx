@@ -1,4 +1,4 @@
-import { SignUpButton } from "../SignUpButton"
+import { SignUpButton } from "../SignUpButton";
 
 const navigation = {
   LinkCol: [
@@ -10,7 +10,7 @@ const navigation = {
         { name: "Kitchen Display System", href: "#" },
         { name: "Promote Tools", href: "#" },
         { name: "Marketing", href: "#" },
-        { name: "Blog", href: "#" },
+        { name: "Blog", href: "/blog" },
         { name: "Pricing", href: "#" },
       ],
     },
@@ -31,7 +31,7 @@ const navigation = {
         { name: "Feedback", href: "#" },
         { name: "University", href: "#" },
         { name: "Terms", href: "#" },
-        { name: "Privacy Policy", href: "#" },
+        { name: "Privacy Policy", href: "/privacy-policy" },
       ],
     },
   ],
@@ -72,7 +72,7 @@ const navigation = {
       ),
     },
   ],
-}
+};
 
 export function Footer() {
   return (
@@ -136,5 +136,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

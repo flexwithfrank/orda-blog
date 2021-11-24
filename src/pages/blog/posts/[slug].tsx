@@ -5,6 +5,7 @@ import { Footer } from "components/Footer";
 import { Header } from "components/Header";
 import { ReadyToLaunch } from "components/ReadyToLaunch";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
 
 type Props = {
   post: PostType;
@@ -13,6 +14,26 @@ type Props = {
 export default function Post({ post }: Props) {
   return (
     <>
+      <NextSeo
+        title={`${post.title}`}
+        description="This example uses more of the available config options."
+        canonical="https://www.canonical.ie/"
+        openGraph={{
+          url: "https://www.url.ie/a",
+          title: "Orda - iOS &amp; Android App Builder.",
+          description:
+            "Next generation mobile ordering app builder for Square that gives your customers convenience and puts your brand at their fingertips",
+          images: [
+            {
+              url: `${post.coverImage}`,
+              width: 800,
+              height: 600,
+              type: "image/jpeg",
+            },
+          ],
+          site_name: "Orda",
+        }}
+      />
       <Header />
       <div className="w-11/12  mx-auto flex flex-col justify-center items-center my-16">
         <Image

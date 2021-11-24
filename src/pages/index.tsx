@@ -1,17 +1,25 @@
-import { Button } from "components/Button"
-import { Footer } from "components/Footer"
-import { Header } from "components/Header"
-import { ReadyToLaunch } from "components/ReadyToLaunch"
-import { SignUpButton } from "../components/SignUpButton"
+import { Button } from "components/Button";
+import { Footer } from "components/Footer";
+import { Header } from "components/Header";
+import { ReadyToLaunch } from "components/ReadyToLaunch";
+import { NextSeo } from "next-seo";
+import { SignUpButton } from "../components/SignUpButton";
 
 export default function Home() {
   return (
-    <div className="space-y-16">
-      <Header />
-      <Button text="This is a Custom Button" />
-      <SignUpButton bgColor="black" />
-      <ReadyToLaunch />
-      <Footer />
-    </div>
-  )
+    <>
+      <NextSeo
+        title="Orda - Mobile App Builder - iOS &amp; Android App Builder."
+        description="This example uses more of the available config options."
+        canonical="Next generation mobile ordering app builder for Square that gives your customers convenience and puts your brand at their fingertips"
+      />
+      <div className="space-y-16">
+        <Header />
+        <Button text="This is a Custom Button" />
+        <SignUpButton bgColor="black" />
+        <ReadyToLaunch />
+        <Footer />
+      </div>
+    </>
+  );
 }

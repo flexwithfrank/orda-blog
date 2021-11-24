@@ -4,6 +4,7 @@ import { ReadyToLaunch } from "components/ReadyToLaunch";
 import { BlogSection } from "components/BlogSection";
 import Link from "next/link";
 import { getAllPosts, getPostSlugs } from "lib/api";
+import { NextSeo } from "next-seo";
 
 const POSTS_PER_PAGE = 8;
 
@@ -19,6 +20,10 @@ export default function BlogPage({ posts, page, total }) {
   const hasPreviousPage = page > 1;
   return (
     <>
+      <NextSeo
+        title="Orda Blog - iOS &amp; Android App Builder."
+        description="Next generation mobile ordering app builder for Square that gives your customers convenience and puts your brand at their fingertips."
+      />
       <Header />
       <BlogSection posts={posts} />
       {posts && (

@@ -16,13 +16,12 @@ export default function Post({ post }: Props) {
     <>
       <NextSeo
         title={`${post.title}`}
-        description="This example uses more of the available config options."
-        canonical="https://www.canonical.ie/"
+        description={`${post.excerpt}`}
+        canonical={`https://getorda.com/blog/posts/${post.slug}`}
         openGraph={{
-          url: "https://www.url.ie/a",
-          title: "Orda - iOS &amp; Android App Builder.",
-          description:
-            "Next generation mobile ordering app builder for Square that gives your customers convenience and puts your brand at their fingertips",
+          url: `https://getorda.com/blog/posts/${post.slug}`,
+          title: `${post.title}`,
+          description: `${post.excerpt}`,
           images: [
             {
               url: `${post.coverImage}`,

@@ -31,6 +31,5 @@
 
   p {
     @apply font-cerebri;
-    @apply font-medium;
   }
 }

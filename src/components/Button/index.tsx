@@ -1,10 +1,10 @@
-import { ButtonHTMLAttributes } from "react"
+import { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  bgColor?: "light-blue" | "darker-blue" | "white" | "black"
-  text?: string
-  textColor?: "light-blue" | "darker-blue" | "white" | "black"
-}
+  bgColor?: "light-blue" | "darker-blue" | "white" | "black";
+  text?: string;
+  textColor?: "light-blue" | "darker-blue" | "white" | "black";
+};
 
 const buttonConfig = {
   textColor: {
@@ -19,7 +19,7 @@ const buttonConfig = {
     white: "bg-white",
     black: "bg-black",
   },
-}
+};
 
 export function Button({
   text = "Sign Up",
@@ -29,10 +29,10 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`${buttonConfig.textColor[textColor]} ${buttonConfig.bgColor[bgColor]} font-semibold rounded-full py-4 px-7`}
+      className={`${buttonConfig.textColor[textColor]} ${buttonConfig.bgColor[bgColor]} font-semibold rounded-full py-4 px-7 hover:opacity-90 transition`}
       {...props}
     >
       {text}
     </button>
-  )
+  );
 }

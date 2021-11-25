@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ["via.placeholder.com", "imagedelivery.net"],
+    domains: ["via.placeholder.com", "imagedelivery.net", "i.pravatar.cc"],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

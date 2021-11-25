@@ -6,6 +6,7 @@ import { Header } from "components/Header";
 import { ReadyToLaunch } from "components/ReadyToLaunch";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
+import dayjs from "dayjs";
 
 type Props = {
   post: PostType;
@@ -41,6 +42,27 @@ export default function Post({ post }: Props) {
           height={400}
           width={754}
         />
+        <div className="flex flex-col space-y-4 w-full md:mx-auto mt-8 md:w-[754px]">
+          <div>
+            <span className="bg-darker-blue text-white rounded-full text-xs my-4 py-1 px-2">
+              {post.category}
+            </span>
+          </div>
+          <div className="flex">
+            <Image
+              className="object-cover w-full rounded-full"
+              src={post.author.picture}
+              height={50}
+              width={50}
+            />
+            <div className="flex flex-col ml-4">
+              <p className="inline-block">
+                {dayjs(post.date).format("MMMM D, YYYY")}
+              </p>
+              <p className="inline-block">{post.author.name}</p>
+            </div>
+          </div>
+        </div>
         <div className="mt-8">
           <article className="prose lg:prose-xl">
             <h1 className="font-cerebri">{post.title}</h1>
@@ -66,6 +88,7 @@ export async function getStaticProps({ params }: Params) {
     "date",
     "slug",
     "author",
+    "category",
     "content",
     "ogImage",
     "coverImage",

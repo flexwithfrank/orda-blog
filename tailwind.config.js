@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         "light-blue": "#218BD6",
         "darker-blue": "#2362AF",
+        "header-hover-blue": "#0077ff",
       },
       keyframes: {
         wiggle: {
@@ -29,10 +30,11 @@ module.exports = {
   variants: {
     extend: {
       "border-r": ["last"],
+      ml: ["last"],
     },
   },
   plugins: [
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/typography"),
   ],
-}
+};

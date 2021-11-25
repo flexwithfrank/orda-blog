@@ -1,9 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react"
-import { Popover, Transition } from "@headlessui/react"
-import { MenuIcon, ShieldCheckIcon, XIcon } from "@heroicons/react/outline"
-import { ChevronDownIcon } from "@heroicons/react/solid"
-import { SignUpButton } from "../SignUpButton"
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { MenuIcon, ShieldCheckIcon, XIcon } from "@heroicons/react/outline";
+import { ChevronDownIcon } from "@heroicons/react/solid";
+import { SignUpButton } from "../SignUpButton";
 
 const headerConfig = [
   {
@@ -80,10 +80,10 @@ const headerConfig = [
     name: "Login",
     href: "#",
   },
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ")
+  return classes.filter(Boolean).join(" ");
 }
 
 export function Header() {
@@ -94,8 +94,8 @@ export function Header() {
           <a href="/">
             <span className="sr-only">Orda logo</span>
             <img
-              className="h-8 w-auto sm:h-10"
-              src="/logo.png"
+              className="h-8 w-auto sm:h-12"
+              src="/orda-logo-min.png"
               alt="Orda Logo"
             />
           </a>
@@ -108,15 +108,14 @@ export function Header() {
         </div>
         <Popover.Group
           as="nav"
-          className="hidden md:flex md:items-center space-x-20"
+          className="hidden md:flex md:items-center space-x-16"
         >
           <Popover className="relative">
             {({ open }) => (
               <>
                 <Popover.Button
                   className={classNames(
-                    open ? "text-gray-200" : "text-white",
-                    "group rounded-md inline-flex items-center text-base font-medium hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    "group text-white rounded-md inline-flex items-center text-base font-medium px-2 py-2 sm:rounded-full hover:bg-header-hover-blue"
                   )}
                 >
                   <span>Products</span>
@@ -175,11 +174,11 @@ export function Header() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-white hover:text-gray-200"
+                className="text-base font-medium text-white px-4 py-2 sm:rounded-full hover:bg-header-hover-blue"
               >
                 {link.name}
               </a>
-            )
+            );
           })}
 
           <SignUpButton />
@@ -203,7 +202,11 @@ export function Header() {
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between ">
                 <div>
-                  <img className="h-8 w-auto" src="/logo.png" alt="Orda logo" />
+                  <img
+                    className="h-8 w-auto"
+                    src="/orda-logo-min.png"
+                    alt="Orda logo"
+                  />
                 </div>
                 <div className="-mr-2">
                   <Popover.Button className="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-white hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset">
@@ -237,5 +240,5 @@ export function Header() {
         </Popover.Panel>
       </Transition>
     </Popover>
-  )
+  );
 }

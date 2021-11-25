@@ -10,7 +10,8 @@ export default function SignUpPopUp() {
   const [effect, setEffect] = useState(false);
   const [warning, setWarning] = useState(false);
 
-  function handleClick() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!inputValue) {
       setEffect(true);
       setWarning(true);
@@ -21,11 +22,17 @@ export default function SignUpPopUp() {
     if (inputValue) {
       window.location.href = `https://dashboard.getorda.com/signup/?state=${inputValue}`;
     }
-  }
+  };
 
   function turnOffAnimation() {
     setEffect(false);
   }
+
+  const handleKeypress = (e) => {
+    if (e.keyCode === 13) {
+      handleSubmit(e);
+    }
+  };
 
   return (
     <Transition.Root show={modalIsOpen} as={Fragment}>
@@ -86,44 +93,52 @@ export default function SignUpPopUp() {
                 </div>
               </div>
               <div className="flex flex-col md:flex-row justify-center mt-10">
-                <label
-                  className={`${
-                    effect && "animate-wiggle border-2 border-red-500"
-                  } flex items-center py-4 sm:py-0 bg-gray-200 rounded-full pl-6 ${
-                    warning && "border-2 border-red-500"
-                  }`}
-                  onAnimationEnd={() => turnOffAnimation()}
-                >
-                  {warning ? (
-                    <ExclamationIcon
-                      className="h-6 w-6 mr-2 text-red-500"
-                      aria-hidden="true"
-                    />
-                  ) : null}
-                  <input
+                <form>
+                  <label
                     className={`${
-                      warning && "placeholder-red-500"
-                    } bg-gray-200 outline-none w-11/12 md:w-80 pr-6`}
-                    placeholder={
-                      warning
-                        ? "Please enter your store URL here"
-                        : "Enter your store URL here"
-                    }
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                  />
-                  <div className="hidden sm:block">
-                    <Button text="Connect with Square" onClick={handleClick} />
+                      effect && "animate-wiggle border-2 border-red-500"
+                    } flex items-center py-4 sm:py-0 bg-gray-200 rounded-full pl-6 ${
+                      warning && "border-2 border-red-500"
+                    }`}
+                    onAnimationEnd={() => turnOffAnimation()}
+                  >
+                    {warning ? (
+                      <ExclamationIcon
+                        className="h-6 w-6 mr-2 text-red-500"
+                        aria-hidden="true"
+                      />
+                    ) : null}
+                    <input
+                      className={`${
+                        warning && "placeholder-red-500"
+                      } bg-gray-200 outline-none w-11/12 md:w-80 pr-6`}
+                      placeholder={
+                        warning
+                          ? "Please enter your store URL here"
+                          : "Enter your store URL here"
+                      }
+                      type="text"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      onKeyPress={handleKeypress}
+                    />
+                    <div className="hidden sm:block">
+                      <Button
+                        type="submit"
+                        text="Connect with Square"
+                        onClick={handleSubmit}
+                      />
+                    </div>
+                  </label>
+                  <div className="block md:hidden mt-8">
+                    <Button
+                      type="submit"
+                      text="Connect with Square"
+                      onClick={handleSubmit}
+                      style={{ width: "100%" }}
+                    />
                   </div>
-                </label>
-                <div className="block md:hidden mt-8">
-                  <Button
-                    text="Connect with Square"
-                    onClick={handleClick}
-                    style={{ width: "100%" }}
-                  />
-                </div>
+                </form>
               </div>
               <p className="text-gray-400 text-sm text-center mt-20">
                 By logging in you agree to our{" "}

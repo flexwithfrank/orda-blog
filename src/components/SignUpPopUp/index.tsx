@@ -96,9 +96,13 @@ export default function SignUpPopUp() {
                 <form>
                   <label
                     className={`${
-                      effect && "animate-wiggle border-2 border-red-500"
+                      effect && "animate-wiggle border-2"
                     } flex items-center py-4 sm:py-0 bg-gray-200 rounded-full pl-6 ${
-                      warning && "border-2 border-red-500"
+                      !warning &&
+                      "focus-within:border-2 focus-within:border-darker-blue"
+                    } ${
+                      warning &&
+                      "border-2 border-red-500 focus-within:border-2 focus-within:border-red-500"
                     }`}
                     onAnimationEnd={() => turnOffAnimation()}
                   >

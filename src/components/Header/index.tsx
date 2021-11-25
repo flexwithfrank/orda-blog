@@ -174,7 +174,7 @@ export function Header() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-white px-4 py-2 sm:rounded-full hover:bg-header-hover-blue"
+                className="text-base font-medium text-white px-4 py-2 sm:rounded-full transition hover:bg-header-hover-blue"
               >
                 {link.name}
               </a>

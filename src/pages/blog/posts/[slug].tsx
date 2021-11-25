@@ -43,10 +43,20 @@ export default function Post({ post }: Props) {
           width={754}
         />
         <div className="flex flex-col space-y-4 w-full md:mx-auto mt-8 md:w-[754px]">
-          <div>
-            <span className="bg-darker-blue text-white rounded-full text-xs my-4 py-1 px-2">
-              {post.category}
-            </span>
+          <div className="space-x-2">
+            {post.category
+              .split(",")
+              .slice(0, 2)
+              .map((element) => {
+                return (
+                  <span
+                    key={element}
+                    className="bg-darker-blue text-white rounded-full text-xs my-4 py-1 px-2"
+                  >
+                    {element}
+                  </span>
+                );
+              })}
           </div>
           <div className="flex">
             <Image

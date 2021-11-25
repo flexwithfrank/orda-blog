@@ -1,14 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRightIcon } from "@heroicons/react/outline"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/outline";
 
 type BlogPostCardProps = {
-  title: string
-  excerpt: string
-  slug: string
-  coverImage: string
-  category: string
-}
+  title: string;
+  excerpt: string;
+  slug: string;
+  coverImage: string;
+  category: string;
+};
 
 export function BlogPostCard({
   title,
@@ -28,10 +28,20 @@ export function BlogPostCard({
             className="object-cover rounded-2xl"
           />
         </div>
-        <div className="my-3">
-          <span className="bg-darker-blue text-white rounded-full text-xs my-4 py-1 px-2">
-            {category}
-          </span>
+        <div className="my-3 space-x-2">
+          {category
+            .split(",")
+            .slice(0, 2)
+            .map((element) => {
+              return (
+                <span
+                  key={element}
+                  className="bg-darker-blue text-white rounded-full text-xs my-4 py-1 px-2"
+                >
+                  {element}
+                </span>
+              );
+            })}
         </div>
         <h2 className="font-semibold text-lg line-clamp-3">{title}</h2>
         <p className="text-sm line-clamp-4">{excerpt}</p>
@@ -41,5 +51,5 @@ export function BlogPostCard({
         </p>
       </a>
     </Link>
-  )
+  );
 }

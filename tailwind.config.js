@@ -15,6 +15,7 @@ module.exports = {
         "light-blue": "#218BD6",
         "darker-blue": "#2362AF",
         "header-hover-blue": "#0077ff",
+        "gray-hover": "#F4F6FC",
       },
       keyframes: {
         wiggle: {

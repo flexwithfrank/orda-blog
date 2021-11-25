@@ -2,7 +2,7 @@
 import { Fragment, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, ShieldCheckIcon, XIcon } from "@heroicons/react/outline";
-import { ChevronDownIcon } from "@heroicons/react/solid";
+import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import { SignUpButton } from "../SignUpButton";
 
 const headerConfig = [
@@ -154,10 +154,19 @@ export function Header() {
                             <p className="text-xs font-medium text-light-blue">
                               {column.description}
                             </p>
-                            <ul className="space-y-6 mt-12 text-xl">
+                            <ul className="space-y-6 mt-12 text-lg">
                               {column.links.map((link) => (
                                 <li key={link.name}>
-                                  <a href={link.href}>{link.name}</a>
+                                  <a
+                                    className="group inline-flex items-center hover:bg-gray-hover hover: px-3 py-2 rounded-full"
+                                    href={link.href}
+                                  >
+                                    {link.name}
+                                    <ChevronRightIcon
+                                      className="ml-2 h-5 w-5 text-white group-hover:text-darker-blue transition"
+                                      aria-hidden="true"
+                                    />
+                                  </a>
                                 </li>
                               ))}
                             </ul>

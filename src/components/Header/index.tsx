@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, ShieldCheckIcon, XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
@@ -87,6 +87,8 @@ function classNames(...classes) {
 }
 
 export function Header() {
+  const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
+
   return (
     <Popover className="relative bg-darker-blue">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
@@ -198,7 +200,7 @@ export function Header() {
           focus
           className="absolute z-10 top-0 inset-x-0 transition transform origin-top-right md:hidden"
         >
-          <div className="h-screen ring-1 ring-black ring-opacity-5 bg-darker-blue divide-y-2 divide-gray-50">
+          <div className="min-h-screen ring-1 ring-black ring-opacity-5 bg-darker-blue">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between ">
                 <div>
@@ -209,7 +211,7 @@ export function Header() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-white hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset">
+                  <Popover.Button className="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-white">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -217,11 +219,40 @@ export function Header() {
               </div>
               <div className="mt-6">
                 <nav className="grid grid-cols-1 gap-7">
-                  {headerConfig.map((link) => (
+                  <button
+                    className="-m-3 p-3 flex items-center border-b border-white"
+                    onClick={() => setSubMenuIsOpen(!subMenuIsOpen)}
+                  >
+                    <div className="ml-4 text-base flex justify-between font-medium w-full text-white">
+                      <p>Products</p>
+                      <ChevronDownIcon
+                        className="text-white h-7 w-7"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </button>
+                  {subMenuIsOpen
+                    ? headerConfig[0].submenu.map((column) => (
+                        <div key={column.name} className="text-white">
+                          <h2 className="text-xl font-medium flex items-baseline">
+                            <column.icon className="h-6 w-6 mr-4" />
+                            {column.name}
+                          </h2>
+                          <ul className="space-y-6 mt-6 text-base ml-10">
+                            {column.links.map((link) => (
+                              <li key={link.name}>
+                                <a href={link.href}>{link.name}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))
+                    : null}
+                  {headerConfig.slice(1).map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
-                      className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
+                      className="-m-3 p-3 flex items-center border-b border-white"
                     >
                       <div className="ml-4 text-base font-medium text-white">
                         {link.name}

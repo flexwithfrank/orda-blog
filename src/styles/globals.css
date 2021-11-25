@@ -10,6 +10,14 @@
   src: local("Cerebri"), url(/fonts/CerebriSans-ExtraBold.woff2) format("woff2");
 }
 
+@font-face {
+  font-family: "Cerebri";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Cerebri"), url(/fonts/CerebriSans-Book.woff2) format("woff2");
+}
+
 @layer base {
   h1,
   h2,
@@ -18,5 +26,11 @@
   h5,
   h6 {
     @apply font-cerebri;
+    @apply font-extrabold;
+  }
+
+  p {
+    @apply font-cerebri;
+    @apply font-medium;
   }
 }

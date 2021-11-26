@@ -93,6 +93,11 @@ function classNames(...classes) {
 export function Header() {
   const [subMenuIsOpen, setSubMenuIsOpen] = useState(false);
 
+  // useEffect(() => {
+  //   show && (document.body.style.overflow = "hidden");
+  //   !show && (document.body.style.overflow = "unset");
+  // }, [show]);
+
   return (
     <Popover className="relative bg-darker-blue">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
@@ -126,10 +131,7 @@ export function Header() {
                 >
                   <span>Products</span>
                   <ChevronDownIcon
-                    className={classNames(
-                      open ? "text-white" : "text-white",
-                      "ml-2 h-5 w-5 group-hover:text-white"
-                    )}
+                    className="text-white ml-2 h-5 w-5 group-hover:text-white"
                     aria-hidden="true"
                   />
                 </Popover.Button>
@@ -211,9 +213,9 @@ export function Header() {
       >
         <Popover.Panel
           focus
-          className="absolute z-10 top-0 inset-x-0 transition transform origin-top-right md:hidden"
+          className="fixed z-10 top-0 overflow-y-scroll h-full inset-x-0 transition transform origin-top-right md:hidden"
         >
-          <div className="min-h-screen ring-1 ring-black ring-opacity-5 bg-darker-blue">
+          <div className="ring-1 min-h-screen ring-black ring-opacity-5 bg-darker-blue">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between ">
                 <div>

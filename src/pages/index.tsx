@@ -10,8 +10,8 @@ export default function Home() {
     <>
       <NextSeo
         title="Orda - Mobile App Builder - iOS &amp; Android App Builder."
-        description="This example uses more of the available config options."
-        canonical="Next generation mobile ordering app builder for Square that gives your customers convenience and puts your brand at their fingertips"
+        description="Next generation mobile ordering app builder for Square that gives your customers convenience and puts your brand at their fingertips"
+        canonical={`https://getorda.com}`}
       />
       <div className="space-y-16">
         <Header />

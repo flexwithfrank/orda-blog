@@ -13,6 +13,7 @@ type Props = {
 };
 
 export default function Post({ post }: Props) {
+  console.log(post.excerpt);
   return (
     <>
       <NextSeo
@@ -95,6 +96,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
     "title",
+    "excerpt",
     "date",
     "slug",
     "author",

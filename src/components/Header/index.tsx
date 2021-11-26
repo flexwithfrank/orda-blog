@@ -1,8 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, ShieldCheckIcon, XIcon } from "@heroicons/react/outline";
-import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+} from "@heroicons/react/solid";
 import { SignUpButton } from "../SignUpButton";
 
 const headerConfig = [
@@ -234,10 +238,17 @@ export function Header() {
                   >
                     <div className="ml-4 text-base flex justify-between font-medium w-full text-white">
                       <p>Products</p>
-                      <ChevronDownIcon
-                        className="text-white h-7 w-7"
-                        aria-hidden="true"
-                      />
+                      {subMenuIsOpen ? (
+                        <ChevronUpIcon
+                          className="text-white h-7 w-7"
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <ChevronDownIcon
+                          className="text-white h-7 w-7"
+                          aria-hidden="true"
+                        />
+                      )}
                     </div>
                   </button>
                   {subMenuIsOpen

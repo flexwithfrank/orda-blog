@@ -17,7 +17,7 @@ export default function Home() {
         <Header />
         <Button text="This is a Custom Button" />
         <SignUpButton bgColor="black" />
-        <ReadyToLaunch subDescription="Sub description" />
+        <ReadyToLaunch />
         <Footer />
       </div>
     </>

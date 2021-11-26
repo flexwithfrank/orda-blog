@@ -4,7 +4,7 @@ import { CheckIcon, TrendingUpIcon, CodeIcon } from "@heroicons/react/solid";
 type ReadyToLaunchProps = {
   ctaText?: React.ReactNode;
   option2?: boolean;
-  subDescription?: string;
+  subDescription?: React.ReactNode;
 };
 
 export function ReadyToLaunch({
@@ -14,7 +14,7 @@ export function ReadyToLaunch({
       Ready to <br /> Launch?
     </p>
   ),
-  subDescription,
+  subDescription = <p>Description</p>,
 }: ReadyToLaunchProps) {
   return (
     <div className="relative z-0 w-full my-24">
